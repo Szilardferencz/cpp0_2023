@@ -4,6 +4,7 @@
 
 #include "functions.h"
 #include <cmath>
+#include <string>
 using namespace std;
 
 int countBits(int number) {
@@ -71,3 +72,59 @@ std::pair<double, double> max2(double array[], int numElements) {
 
     return std::make_pair(secondLargest, largest);
 }
+
+
+int countWords(const std::string& text) {
+    int count = 0;
+    bool inWord = false;
+
+    for (char c : text) {
+        if (std::isspace(c)) {
+            inWord = false;
+        } else {
+            if (!inWord) {
+                count++;
+                inWord = true;
+            }
+        }
+    }
+
+    return count;
+}
+std::string code(const std::string& text) {
+    std::string result = text;
+
+    for (char& c : result) {
+        if (std::isalpha(c)) {
+            if (c == 'z') {
+                c = 'a';
+            } else if (c == 'Z') {
+                c = 'A';
+            } else {
+                c++;
+            }
+        }
+    }
+
+    return result;
+}
+
+std::string decode(const std::string& text) {
+    std::string result = text;
+
+    for (char& c : result) {
+        if (std::isalpha(c)) {
+            if (c == 'a') {
+                c = 'z';
+            } else if (c == 'A') {
+                c = 'Z';
+            } else {
+                c--;
+            }
+        }
+    }
+
+    return result;
+}
+
+

@@ -38,4 +38,16 @@ int main() {
     std::pair<double, double> result = max2(values, numElements);
     std::cout << "A ket legnagyobb elem: " << result.first << "," << result.second << std::endl;
 
+    std::string inputText = "Ez egy pelda szoveg a szavak szamolasahoz.";
+    int wordCount = countWords(inputText);
+
+    std::cout << "A szovegben talalhato szavak szama: " << wordCount << std::endl;
+
+    std::string encodedText = code(inputText);
+    std::string decodedText = decode(encodedText);
+
+    std::cout << "Eredeti szoveg: " << inputText << std::endl;
+    std::cout << "Kodolt szoveg: " << encodedText << std::endl;
+    std::cout << "Dekodolt szoveg: " << decodedText << std::endl;
+
 }
