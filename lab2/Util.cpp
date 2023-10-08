@@ -54,4 +54,31 @@ void testIsSquare(const char * filename)
 
     file.close();
 }
+Point* createArray(int numPoints)
+{
+    random_device rd;
+    mt19937 mt(rd());
+    uniform_real_distribution<double> dist(0, 2000);
+    Point * points = new Point[numPoints];
+    for (int i=0;i<numPoints;i++)
+    {
+        int x=(int)dist(mt);
+        int y=(int)dist(mt);
+        points[i]=Point(x, y);
+    }
+    return points;
+}
+
+void printArray(Point* points, int numPoints)
+{
+    for (int i=0;i<numPoints;i++)
+    {
+        points[i].print();
+    }
+}
+
+void deletePoints(Point* points)
+{
+    delete[] points;
+}
 
